@@ -1,43 +1,29 @@
-class MessageProcessor:
-    def __init__(self, message) -> None:
-        self.message = message
+import re
 
-    def insert_space(self, index):
-        self.message = self.message[:index] + " " + self.message[index:]
-        print(self.message)
+def main():
+    input_text = input()
+    task = input().split(":|:")
 
-    def reverse(self, substring):
-        if substring in self.message:
-            reversed_substring = substring[::-1]
-            self.message = self.message.replace(substring, reversed_substring, 1)
-            print(self.message)
-        else:
-            print("error")
+    while task[0] != "Reveal":
+        if task[0] == "ChangeAll":
+            input_text = input_text.replace(task[1], task[2])
+            print(input_text)
+        elif task[0] == "InsertSpace":
+            space_num = int(task[1])
+            input_text = input_text[:space_num] + " " + input_text[space_num:]
+            print(input_text)
+        elif task[0] == "Reverse":
+            for_check = task[1]
+            if for_check in input_text:
+                for_replays = for_check[::-1]
+                input_text = re.sub(re.escape(for_check), "", input_text, 1) + for_replays
+                print(input_text)
+            else:
+                print("error")
 
-    def change_all(self, substring, replacement):
-        self.message = self.message.replace(substring, replacement)
-        print(self.message)
+        task = input().split(":|:")
 
-    def reveal_message(self):
-        print(f"You have a new text message: {self.message}")
+    print(f"You have a new text message: {input_text}")
 
-concealed_message = input()
-message_processor = MessageProcessor(concealed_message)
-
-while True:
-    command = input().split(":|:")
-    action = command[0]
-
-    if action == 'InsertSpace':
-        index = int(command[1])
-        message_processor.insert_space(index)
-    elif action == 'Reverse':
-        substring = command[1]
-        message_processor.reverse(substring)
-    elif action == 'ChangeAll':
-        substring = command[1]
-        replacement = command[2]
-        message_processor.change_all(substring, replacement)
-    elif action == 'Reveal':
-        message_processor.reveal_message()
-        break
+if __name__ == "__main__":
+    main()

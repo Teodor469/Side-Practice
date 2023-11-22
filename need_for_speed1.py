@@ -60,3 +60,7 @@ def main_function():
                 elif actions == 'Revert':
                     kilometers = int(tokens[2])
                     revert(car, kilometers)
+    for car in cars:
+        print(f"{car['name']} -> Mileage: {car['mileage']} kms, Fuel in the tank: {car['fuel']} lt.")
+
+main_function()

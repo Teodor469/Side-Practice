@@ -3,7 +3,7 @@ def create_car(name, mileage, fuel):
 
 def drive(car, distance, required_fuel):
     if car['fuel'] >= required_fuel:
-        car ['mileage'] += distance
+        car['mileage'] += distance
         car['fuel'] -= required_fuel
         print(f"{car['name']} driven for {distance} kilometers. {required_fuel} liters of fuel consumed.")
         if car['mileage'] >= 100000:
@@ -24,6 +24,7 @@ def revert(car, kilometers):
     car['mileage'] -= kilometers
     if car['mileage'] < 10000:
         car['mileage'] = 10000
+        print(f"{car['name']} mileage set to the minimum value of 10000 kilometers")
     else:
         print(f"{car['name']} mileage decreased by {kilometers} kilometers")
 
@@ -33,7 +34,7 @@ def main_function():
 
     for _ in range(n):
         car_info = input().split('|')
-        car = create_car(car_info[0], int(car_info[1], int(car_info[2])))
+        car = create_car(car_info[0], int(car_info[1]), int(car_info[2]))
         cars.append(car)
 
     while True:
@@ -52,14 +53,14 @@ def main_function():
                     distance = int(tokens[2])
                     fuel = int(tokens[3])
                     if drive(car, distance, fuel):
-                        car.remove(car)
+                        cars.remove(car)
                 elif actions == 'Refuel':
                     added_fuel = int(tokens[2])
                     refuel(car, added_fuel)
-
                 elif actions == 'Revert':
                     kilometers = int(tokens[2])
                     revert(car, kilometers)
+
     for car in cars:
         print(f"{car['name']} -> Mileage: {car['mileage']} kms, Fuel in the tank: {car['fuel']} lt.")
 

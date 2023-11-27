@@ -1,9 +1,5 @@
-input_names = input().split(", ")
+def sort_names():
+    name_list = [name for name in input().split(', ')]
+    return sorted(name_list, key=lambda x: (-len(x), x))
 
-# Sort by length in descending order
-input_names.sort(key=len)
-
-# Sort alphabetically for names with the same length
-input_names.sort()
-
-print(input_names)
+print(sort_names())

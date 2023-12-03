@@ -1,26 +1,15 @@
 import re
 
-def is_valid_password(password):
-    pattern = r'^(?P<start>\S+)>(?P<digits>\d+)\|(?P<lower>[a-z]+)\|(?P<upper>[A-Z]+)\|(?P<symbol>[^<>]+)<(?P=start)$'
-    return bool(re.match(pattern, password))
-
-def encrypt_password(password):
-    match = re.match(r'^(?P<start>\S+)>(?P<digits>\d+)\|(?P<lower>[a-z]+)\|(?P<upper>[A-Z]+)\|(?P<symbol>[^<>]+)<(?P=start)$', password)
-    if match:
-        encrypted_password = match.group('digits') + match.group('lower') + match.group('upper') + match.group('symbol')
-        return f"Password: {encrypted_password}"
-    else:
-        return "Try another password!"
-
-def main():
+def validate_and_encrypt_passwords():
     n = int(input())
-    
+    pattern = r'^(\S+)>(\d+)\|([a-z]+)\|([A-Z]+)\|([^\s<>]+)<\1$'
     for _ in range(n):
         password = input()
-        if is_valid_password(password):
-            result = encrypt_password(password)
-            print(result)
+        match = re.match(pattern, password)
+        if match:
+            encrypted_password = ''.join(match.groups()[1:])
+            print(f'Password: {encrypted_password}')
         else:
-            print("Try another password!")
+            print('Try another password!')
 
-main()
+validate_and_encrypt_passwords()

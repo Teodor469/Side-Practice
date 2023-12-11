@@ -4,7 +4,6 @@ import tkinter as tk
 
 root = tk.Tk()
 root.title("Simple calculator")
-root.geometry('600x500')
 
 e = Entry(root, width=35, borderwidth=5)
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)

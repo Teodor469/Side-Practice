@@ -38,6 +38,12 @@ button_7 = tk.Button(root, text='7', padx=40, pady=20, command=button_add)
 button_8 = tk.Button(root, text='8', padx=40, pady=20, command=button_add)
 button_9 = tk.Button(root, text='9', padx=40, pady=20, command=button_add)
 button_0 = tk.Button(root, text='0', padx=40, pady=20, command=button_add)
+add_button = tk.Button(root, text='+', padx=39, pady=20, command=button_add)
+subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=button_add)
+multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=button_add)
+devide_button = tk.Button(root, text='/', padx=40, pady=20, command=button_add)
+equal_button = tk.Button(root, text='=', padx=39, pady=20, command=button_add)
+clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=button_add)
 
 
 #Adding button grid
@@ -54,6 +60,11 @@ button_8.grid(row=1, column=1)
 button_9.grid(row=1, column=2)
 
 button_0.grid(row=4, column=0)
-
+clear_button.grid(row=4, column=1, columnspan=2)
+add_button.grid(row=4, column=3)
+subtract_button.grid(row=3, column=3)
+multiply_button.grid(row=2, column=3)
+devide_button.grid(row=1, column=3)
+equal_button.grid(row=5, column=0)
 
 root.mainloop()

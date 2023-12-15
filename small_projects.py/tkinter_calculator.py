@@ -7,37 +7,25 @@ root.title("Simple calculator")
 
 e = Entry(root, width=35, borderwidth=5)
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-
-
-def addition(number1, number2):
-    return number1 + number2
-
-def subtraction(number1, number2):
-    return number1 - number2
-
-def multiplication(number1, number2):
-    return number1 * number2
-
-def devision(number1, number2):
-    if number2 != 0:
-        return number1 / number2
-    else:
-        return "Devision by zero is impossible"
     
+#Clicking actions
 def button_add(number):
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(number))
 
+#Clearing everything
 def button_clear():
     e.delete(0, END)
 
+#Adding action
 def button_plus():
     first_number = e.get()
     global f_num 
     f_num = int(first_number)
     e.delete(0, END)
 
+#Equal action
 def button_equal():
     second_number = e.get()
     e.delete(0, END)

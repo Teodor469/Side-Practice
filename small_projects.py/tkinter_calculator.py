@@ -25,8 +25,12 @@ def devision(number1, number2):
         return "Devision by zero is impossible"
     
 def button_add(number):
+    current = e.get()
     e.delete(0, END)
-    e.insert(0, number)
+    e.insert(0, str(current) + str(number))
+
+def button_clear():
+    e.delete(0, END)
 
 
 #Creating the buttons
@@ -45,7 +49,7 @@ subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=lambda: bu
 multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=lambda: button_add('*'))
 devide_button = tk.Button(root, text='/', padx=40, pady=20, command=lambda: button_add('/'))
 equal_button = tk.Button(root, text='=', padx=39, pady=20, command=lambda: button_add('='))
-clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=lambda: button_add('C'))
+clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=button_clear)
 
 
 #Adding button grid

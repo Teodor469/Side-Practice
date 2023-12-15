@@ -40,12 +40,12 @@ button_7 = tk.Button(root, text='7', padx=40, pady=20, command=lambda: button_ad
 button_8 = tk.Button(root, text='8', padx=40, pady=20, command=lambda: button_add(8))
 button_9 = tk.Button(root, text='9', padx=40, pady=20, command=lambda: button_add(9))
 button_0 = tk.Button(root, text='0', padx=40, pady=20, command=lambda: button_add(0))
-add_button = tk.Button(root, text='+', padx=39, pady=20, command=lambda: button_add(1))
-subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=lambda: button_add(1))
-multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=lambda: button_add(1))
-devide_button = tk.Button(root, text='/', padx=40, pady=20, command=lambda: button_add(1))
-equal_button = tk.Button(root, text='=', padx=39, pady=20, command=lambda: button_add(1))
-clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=lambda: button_add(1))
+add_button = tk.Button(root, text='+', padx=39, pady=20, command=lambda: button_add('+'))
+subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=lambda: button_add('-'))
+multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=lambda: button_add('*'))
+devide_button = tk.Button(root, text='/', padx=40, pady=20, command=lambda: button_add('/'))
+equal_button = tk.Button(root, text='=', padx=39, pady=20, command=lambda: button_add('='))
+clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=lambda: button_add('C'))
 
 
 #Adding button grid

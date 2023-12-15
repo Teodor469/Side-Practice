@@ -22,14 +22,53 @@ def button_clear():
 def button_plus():
     first_number = e.get()
     global f_num 
-    f_num = int(first_number)
+    global math 
+    math = 'addition'
+    f_num = int(first_number) #need to make it float in the future
+    e.delete(0, END)
+
+
+def button_sub():
+    first_number = e.get()
+    global f_num 
+    global math 
+    math = 'subtraction'
+    f_num = int(first_number) #need to make it float in the future
+    e.delete(0, END)
+
+
+def button_mult():
+    first_number = e.get()
+    global f_num 
+    global math 
+    math = 'multiplication'
+    f_num = int(first_number) #need to make it float in the future
+    e.delete(0, END)
+
+
+def button_div():
+    first_number = e.get()
+    global f_num 
+    global math 
+    math = 'division'
+    f_num = int(first_number) #need to make it float in the future
     e.delete(0, END)
 
 #Equal action
 def button_equal():
     second_number = e.get()
     e.delete(0, END)
-    e.insert(0, f_num + int(second_number))
+    if math == 'addition':
+        e.insert(0, f_num + int(second_number))
+    elif math == 'subtraction':
+        e.insert(0, f_num - int(second_number))
+    elif math == 'multiplication':
+        e.insert(0, f_num * int(second_number))
+    elif math == 'division':
+        if int(second_number) != 0:
+            e.insert(0, f_num / int(second_number))
+        else:
+            print(0, "Division by zero is impossible")
 
 
 #Creating the buttons
@@ -44,9 +83,9 @@ button_8 = tk.Button(root, text='8', padx=40, pady=20, command=lambda: button_ad
 button_9 = tk.Button(root, text='9', padx=40, pady=20, command=lambda: button_add(9))
 button_0 = tk.Button(root, text='0', padx=40, pady=20, command=lambda: button_add(0))
 add_button = tk.Button(root, text='+', padx=39, pady=20, command=button_plus)
-subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=lambda: button_add('-'))
-multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=lambda: button_add('*'))
-devide_button = tk.Button(root, text='/', padx=40, pady=20, command=lambda: button_add('/'))
+subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=button_sub)
+multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=button_mult)
+devide_button = tk.Button(root, text='/', padx=40, pady=20, command=button_div)
 equal_button = tk.Button(root, text='=', padx=39, pady=20, command=button_equal)
 clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=button_clear)
 

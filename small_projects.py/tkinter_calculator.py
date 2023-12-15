@@ -66,7 +66,7 @@ def button_equal():
         e.insert(0, f_num * int(second_number))
     elif math == 'division':
         if int(second_number) != 0:
-            e.insert(0, f_num / int(second_number))
+            e.insert(0, f_num // int(second_number))
         else:
             print(0, "Division by zero is impossible")
 

@@ -32,6 +32,17 @@ def button_add(number):
 def button_clear():
     e.delete(0, END)
 
+def button_plus():
+    first_number = e.get()
+    global f_num 
+    f_num = int(first_number)
+    e.delete(0, END)
+
+def button_equal():
+    second_number = e.get()
+    e.delete(0, END)
+    e.insert(0, f_num + int(second_number))
+
 
 #Creating the buttons
 button_1 = tk.Button(root, text='1', padx=40, pady=20, command=lambda: button_add(1))
@@ -44,11 +55,11 @@ button_7 = tk.Button(root, text='7', padx=40, pady=20, command=lambda: button_ad
 button_8 = tk.Button(root, text='8', padx=40, pady=20, command=lambda: button_add(8))
 button_9 = tk.Button(root, text='9', padx=40, pady=20, command=lambda: button_add(9))
 button_0 = tk.Button(root, text='0', padx=40, pady=20, command=lambda: button_add(0))
-add_button = tk.Button(root, text='+', padx=39, pady=20, command=lambda: button_add('+'))
+add_button = tk.Button(root, text='+', padx=39, pady=20, command=button_plus)
 subtract_button = tk.Button(root, text='-', padx=40, pady=20, command=lambda: button_add('-'))
 multiply_button = tk.Button(root, text='*', padx=40, pady=20, command=lambda: button_add('*'))
 devide_button = tk.Button(root, text='/', padx=40, pady=20, command=lambda: button_add('/'))
-equal_button = tk.Button(root, text='=', padx=39, pady=20, command=lambda: button_add('='))
+equal_button = tk.Button(root, text='=', padx=39, pady=20, command=button_equal)
 clear_button = tk.Button(root, text='C', padx=86.5, pady=20, command=button_clear)
 
 
